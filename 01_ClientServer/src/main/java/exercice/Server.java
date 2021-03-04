@@ -13,18 +13,17 @@ public class Server {
 
             Socket sc = ss.accept();
 
-            System.out.println(ss);
-            System.out.println(sc);
+
 
             String msg = read(sc);
-            System.out.println(msg);
+            System.out.println(sc + " : " + msg);
 
-            send(sc, "Hello Client");
+            send(sc, ss + " : Hello Client");
 
             msg = read(sc);
-            System.out.println(msg);
+            System.out.println(sc + " : " + msg);
 
-            send(sc, msg.toUpperCase());
+            send(sc, ss + " (your payload as requested) : " + msg.toUpperCase());
 
 //            ss.close();
         } catch (IOException e) {
